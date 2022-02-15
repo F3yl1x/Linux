@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Anzahl=$(tree |wc -l)
+Anzahl=$(tree -a |wc -l)
 
 echo "$(($Anzahl -3))"
 
