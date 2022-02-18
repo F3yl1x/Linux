@@ -1,0 +1,35 @@
+Aufgabe: Ist negativ?
+=====================
+
+Erstelle ein Skript, dass als Eingabe Parameter eine Zahl oder gar nichts entgegen nimmt.
+Nimmt es als Eingabeparameter eine negative Zahl, gibt es folgendes zurueck:
+Ja
+
+Nimmt es als Eingabeparameter eine positive Zahl, gibt es folgendes zurueck:
+Nein
+
+Fehlt der Parameter, gibt das Skript eine usage-Fehler-Meldung mit einem Exit-Code von 1 zurueck:
+usage: ./ist_negativ.sh [zahl]
+
+Ansonsten gibt das Skript immer ein Exit-Code von 0 zurueck.
+
+Beispielaufrufe
+===============
+
+1. Beispiel
+-----------
+
+$ > ./ist_negativ.sh -15
+Ja
+
+
+2. Beispiel
+-----------
+> ./ist_negativ.sh 50000
+Nein
+
+
+3. Beispiel
+-----------
+$ ./ist_negativ.sh      
+usage: ./ist_negativ.sh [zahl]
