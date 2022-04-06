@@ -1,0 +1,62 @@
+mykill
+======
+
+mykill schickt ein Signal SIGKILL an eine Prozess-ID (PID). Es verhaelt sich also wie das Linux-Kommando "kill -9".
+
+Es werden bei der Korrektur nur ganze Zahlen als Parameter angegeben, oder gar kein Parameter.
+
+Bei einer gueltigen PID, wird die PID mit dem Signal SIGKILL beendet, und das Programm beendet sich mit einem Exit-Code von 0.
+Bei einer ungueltigen PID passiert nichts, das Programm beendet sich einfach mit einem Exit-Code 0.
+
+Bei keinem Parameter muss eine usage-Meldung an STDERR mit Exit-Code 1 zurueckgebenen werden.
+In der usage-Meldung muss auch der aktuelle Programmname, der ausgefuehrt wurde,
+angegeben werden (siehe Beispiel 4).
+
+Das fertige Programm muss bei der Abgabe als Dateiname mykill.c in Moodle hochgeladen werden. Bei der automatischen Bewertung wird es wie folgt kompiliert:
+$ gcc mykill.c -o mykill
+
+Tipps zur Realisierung:
+-----------------------
+
+- Alle libc-Funktionen sind erlaubt
+- man 2 signal
+- man 3 atoi
+
+
+Beispiel 1:
+-----------
+In diesem Beispiel wird der Prozess "top" mit der PID 16160 "gekillt" (beendet).
+
+$ top &
+[2] 16160
+[2]  + suspended (tty output)  top
+$ ps -ef | grep 16160
+root     16160 15824   0 11:30am ttys000    0:00.00 top
+root     16162 15824   0 11:30am ttys000    0:00.00 grep --colour=auto 16160
+$ ./mykill 16160
+[2]  + killed     top
+$ ps -ef | grep 16160
+root     16165 15824   0 11:30am ttys000    0:00.00 grep --colour=auto 16160
+
+
+Beispiel 2:
+-----------
+
+$ ./mykill 99999999
+$
+
+Beispiel 3:
+-----------
+
+$ ./mykill 
+usage: ./mykill [pid]
+
+
+Beispiel 4:
+-----------
+
+$ ./mykill 
+usage: ./mykill [pid]
+$ mv mykill beende_prozess
+$ ./beende_prozess 
+usage: ./beende_prozess [pid]

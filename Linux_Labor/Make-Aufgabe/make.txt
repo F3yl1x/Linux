@@ -1,0 +1,40 @@
+Aufgabe: Make
+=============
+
+Erstelle ein Hello-World-C-Programm, mit folgender Funktionsweise:
+
+Beim Aufruf gibt es folgendes zurueck (egal mit welchen Parametern oder keine):
+Hallo, Welt!
+
+Das fertige Programm muss bei der Abgabe als Dateiname Makefile und hallo.c in Moodle hochgeladen werden. Bei der automatischen Bewertung wird es wie folgt kompiliert:
+$ make && ./hallo
+
+Folgende Befehle muessen ueber make aufrufbar sein:
+- make
+- make clean
+
+Die Bewertung braucht also folgende Dateien bei der Abgabe:
+- Makefile
+- hallo.c
+
+Hinweis: Es sind alle libc-Funktionen erlaubt.
+
+
+Beispielaufrufe
+===============
+
+1. Beispiel
+-----------
+$ make && ./hallo
+cc    -c -o hallo.o hallo.c
+cc hallo.o -o hallo
+Hallo, Welt!
+
+
+2. Beispiel
+-----------
+$ make && make clean && ./hallo
+cc    -c -o hallo.o hallo.c
+cc hallo.o -o hallo
+rm -f hallo.o
+Hallo, Welt!

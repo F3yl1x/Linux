@@ -1,0 +1,115 @@
+telefonliste.sh
+===============
+
+Parse eine Telefonliste und gebe die verschiedenen Spalten sortiert wieder:
+
+Gegeben ist eine Telefonliste im folgenden ASCII-Textformat:
+$ cat telefonliste_daten.txt 
+Vorname Nachname: 01234567
+Max Mustermann: 987654321
+
+usw...
+
+Die Korrektur testet dann mit einer eigenen Telefonliste, allerdings das Format bleibt genau gleich.
+
+Folgendes Programm kann die Telefonliste parsen und Spalten sortiert wiedergeben,
+sowie die Liste auch in eine CSV-Format konvertieren.
+
+Folgende Funktionen soll das Bash-Skript enthalten:
+$ ./telefonliste.sh 
+usage: ./telefonliste.sh [-vntc]
+
+-v: Gebe alle Vornamen sortiert wieder (ohne Dupplikate)
+-n: Gebe alle Nachname sortiert wieder (ohne Dupplikate)
+-t: Gebe alle Telefonnummern sortiert wieder (ohne Dupplikate)
+-c: Konvertiere Telefonliste in ein CSV-Format
+
+Falls kein Parameter angegeben wird, gebe eine Usage-Meldung an STDERR mit Exit-Code 1 und den aktuellen Programmnamen wieder.
+
+Das Programm nimmt die Listendaten ueber STDIN-Stream an.
+
+Das fertige Programm muss bei der Abgabe als Dateiname telefonliste.sh in Moodle hochgeladen werden. Bei der automatischen Bewertung wird es wie folgt ausgefuehrt:
+$ ./telefonliste.sh
+
+Tipps zur Realisierung:
+-----------------------
+- man 1 cut
+- man 1 sort
+- man 1 tr
+
+Fuer die Beispiele enthält unsere Demo-Telefonliste folgende Daten
+(bei der Korrektur wird mit einem anderen Inhalt aber im selben Format getestet):
+---------------------------------------------------------------------------------
+$ cat telefonliste_daten.txt 
+Andrea Bauer: 09227688355
+Nicole Lange: 09964784768
+Janina Bauer: 02248563838
+Christian Schäfer: 0373414355
+Ines Holzman: 06855228063
+Philipp Holzman: 05861126971
+Birgit Beich: 07641622288
+Marco Weisz: 0388745853
+
+
+Beispiel 1:
+-----------
+$ cat telefonliste_daten.txt | ./telefonliste.sh -v
+Andrea
+Birgit
+Christian
+Ines
+Janina
+Marco
+Nicole
+Philipp
+
+
+Beispiel 2:
+-----------
+$ cat telefonliste_daten.txt | ./telefonliste.sh -n
+Bauer
+Beich
+Holzman
+Lange
+Schäfer
+Weisz
+
+
+Beispiel 3:
+-----------
+$ cat telefonliste_daten.txt | ./telefonliste.sh -t
+02248563838
+0373414355
+0388745853
+05861126971
+06855228063
+07641622288
+09227688355
+09964784768
+
+
+Beispiel 4:
+-----------
+$ cat telefonliste_daten.txt | ./telefonliste.sh -c
+Vorname;Nachname;Telefonnummer
+Andrea;Bauer;09227688355
+Nicole;Lange;09964784768
+Janina;Bauer;02248563838
+Christian;Schäfer;0373414355
+Ines;Holzman;06855228063
+Philipp;Holzman;05861126971
+Birgit;Beich;07641622288
+Marco;Weisz;0388745853
+
+
+Beispiel 5:
+-----------
+$ cat telefonliste_daten.txt | ./telefonliste.sh
+usage: ./telefonliste.sh [-vntc]
+
+-v: Gebe alle Vornamen sortiert wieder (ohne Dupplikate)
+-n: Gebe alle Nachname sortiert wieder (ohne Dupplikate)
+-t: Gebe alle Telefonnummern sortiert wieder (ohne Dupplikate)
+-c: Konvertiere Telefonliste in ein CSV-Format
+$ echo $?
+1

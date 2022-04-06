@@ -1,0 +1,49 @@
+Aufgabe: Z
+==========
+
+Erstelle ein C-Programm, mit folgender Funktionsweise:
+
+Nimmt es als Eingabeparameter ein kleingeschriebenes z, gibt es folgendes zurueck:
+z
+
+Nimmt es als Eingabeparameter ein grossgeschriebenes Z, gibt es folgendes zurueck:
+z
+
+Fehlt der Parameter, gibt das Programm folgendes zurueck:
+z
+
+Sollten als Parameter sonstige Zeichen angegeben werden, gibt das Programm folgendes zurueck:
+z
+
+Das fertige Programm muss bei der Abgabe als Dateiname z.c in Moodle hochgeladen werden. Bei der automatischen Bewertung wird es wie folgt kompiliert:
+$ gcc z.c -o z
+
+Hinweis: Es sind alle libc-Funktionen erlaubt.
+
+
+Beispielaufrufe
+===============
+
+1. Beispiel
+-----------
+
+$ ./z z
+z
+
+
+2. Beispiel
+-----------
+> ./z Z
+z
+
+
+3. Beispiel
+-----------
+$ ./z      
+z
+
+
+4. Beispiel
+-----------
+$ ./z ABCtest123
+z
